@@ -12,7 +12,19 @@ Future<void> backgroundHandler(RemoteMessage message) async {
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  if (!kIsWeb) {
+    await Firebase.initializeApp();
+  } else {
+    await Firebase.initializeApp(
+        options: const FirebaseOptions(
+            apiKey: "AIzaSyANPiBSp88mirUgLxn0yYEexScm1uCgJcQ",
+            authDomain: "webapp-a31ae.firebaseapp.com",
+            projectId: "webapp-a31ae",
+            storageBucket: "webapp-a31ae.appspot.com",
+            messagingSenderId: "529367101886",
+            appId: "1:529367101886:web:8b6eb7164a47ff660bc9ef",
+            measurementId: "G-GLXQZLSNLG"));
+  }
   FirebaseMessaging.onBackgroundMessage(backgroundHandler);
   FirebaseMessaging.instance.getToken().then((token) {
     print("Token: $token");
