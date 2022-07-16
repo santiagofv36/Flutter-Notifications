@@ -14,6 +14,9 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   FirebaseMessaging.onBackgroundMessage(backgroundHandler);
+  FirebaseMessaging.instance.getToken().then((token) {
+    print("Token: $token");
+  });
   runApp(const MyApp());
 }
 
