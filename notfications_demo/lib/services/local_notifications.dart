@@ -7,8 +7,7 @@ class localNotificationService {
 
   static void initialize() {
     final InitializationSettings initializationSettingsAndroid =
-        InitializationSettings(
-            android: AndroidInitializationSettings('@mipmap/ic_launcher'));
+        InitializationSettings(android: AndroidInitializationSettings('icon2'));
     _flutterLocalNotificationsPlugin.initialize(initializationSettingsAndroid,
         onSelectNotification: (String? payload) {
       print(payload);

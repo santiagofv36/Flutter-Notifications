@@ -51,7 +51,7 @@ class _HomePageState extends State<HomePage> {
     });
     //Background State
     FirebaseMessaging.onMessageOpenedApp.listen((message) {
-      send();
+      // send();
       setState(() {
         msg =
             "${message.notification!.title} ${message.notification!.body} I am coming from background";
